@@ -7,7 +7,6 @@ def decision_tree(X_train,y_train, n_features):
     #pca.fit(X_train.transpose())
     #X_train = pca.components_.transpose()
     clf = tree.DecisionTreeClassifier()
-    #clf = RandomForestClassifier(n_estimators=10)
     clf = clf.fit(X_train,y_train)
     return clf,features
 
@@ -26,8 +25,6 @@ def Random_Forest_Algorithm(X_train, y_train, n_trees, n_bootstrap, n_features):
         forrest.append(tree)
     return forrest,features
 
-#forrest,features = Random_Forest_Algorithm(X_train,y_train, 10, 50, 25)
-#print(features)
 
 def Forrest_Predictions(X_test,forrest,features):
     forrest_predictions = {}
@@ -52,14 +49,6 @@ def prediction(X_test, forrest, features):
             predictions.loc[i] = 1
 
     return predictions
-
-#prediction = Final_Prediction(forrest_predictions)
-
-#conf_matrix = confusion_matrix(prediction,y_test)
-
-#print(conf_matrix)
-
-#print(np.trace(conf_matrix)/np.sum(conf_matrix))
 
 
 
